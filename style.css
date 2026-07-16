@@ -127,7 +127,7 @@ body {
   background: var(--grad-hero); -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; background-clip: text;
 }
-.name-cursor { -webkit-text-fill-color: var(--accent2); animation: blink 1s step-end infinite; margin-left: 2px; }
+.name-cursor { font-family: sans-serif; -webkit-text-fill-color: var(--accent2); animation: blink 1s step-end infinite; margin-left: 2px; }
 
 .hero-subtitle { font-size: 1.2rem; color: var(--text-muted); margin-bottom: .75rem; }
 .highlight { color: var(--accent3); font-weight: 600; }
