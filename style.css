@@ -195,25 +195,123 @@ body {
 
 /* Floating cards */
 .floating-elements {
-  position: absolute; right: 5%; top: 50%; transform: translateY(-50%);
+  position: absolute; right: 8%; bottom: 8%;
   display: flex; flex-direction: column; gap: 1.5rem; pointer-events: none;
 }
 /* Re-enable pointer events for the NP card specifically */
 .hero-np-card { pointer-events: all; }
-.hero-profile-img {
-  width: 320px;
-  height: 400px;
-  object-fit: cover;
-  border-radius: 20px;
-  border: 2px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 16px 48px rgba(239, 68, 68, 0.25);
-  animation: floatB 7s ease-in-out infinite;
+
+/* 🪪 Hanging ID Card */
+.hanging-id-card {
+  position: absolute;
+  top: 0;
+  right: 12%;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   pointer-events: auto;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transform-origin: top center;
+  animation: sway 5s ease-in-out infinite alternate;
 }
-.hero-profile-img:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 24px 56px rgba(239, 68, 68, 0.4);
+
+@keyframes sway {
+  0% { transform: rotate(-3deg); }
+  100% { transform: rotate(3deg); }
+}
+
+.lanyard-strap {
+  width: 6px;
+  height: 90px;
+  background: var(--accent);
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
+  position: relative;
+}
+.lanyard-strap::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 12px;
+  background: #222;
+  border-radius: 4px;
+}
+
+.id-card-body {
+  width: 220px;
+  background: rgba(10, 10, 10, 0.95);
+  border: 2px solid var(--accent);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(239, 68, 68, 0.1);
+  text-align: center;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--text);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.id-card-body:hover {
+  transform: scale(1.03) translateY(4px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.95), 0 0 40px rgba(239, 68, 68, 0.3);
+}
+
+.id-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+.id-header-title { color: var(--accent3); }
+.id-header-status { color: #10b981; text-shadow: 0 0 6px rgba(16,185,129,0.4); }
+
+.id-card-photo-wrap {
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid var(--border2);
+  margin-bottom: 10px;
+}
+.id-card-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.id-card-details {
+  text-align: left;
+}
+.id-name {
+  font-size: 0.95rem;
+  font-weight: 900;
+  color: var(--text);
+  margin-bottom: 4px;
+  letter-spacing: 0.5px;
+}
+.id-dept {
+  color: var(--text-muted);
+  font-size: 0.65rem;
+  margin-bottom: 12px;
+}
+.id-barcode {
+  height: 25px;
+  background: repeating-linear-gradient(
+    90deg,
+    #fdfdfd,
+    #fdfdfd 2px,
+    #050505 2px,
+    #050505 5px
+  );
+  border-radius: 3px;
+  opacity: 0.85;
+}
 }
 .card-1 { animation: floatA 6s ease-in-out infinite; }
 .card-2 { animation: floatB 7s ease-in-out infinite; }
