@@ -435,8 +435,8 @@ loadLeetCode();
       (put your username and key below)
    ============================================= */
 
-const LASTFM_USER = 'YOUR_LASTFM_USERNAME';   // ← replace with your Last.fm username
-const LASTFM_KEY  = 'YOUR_LASTFM_API_KEY';    // ← replace with your Last.fm API key
+const LASTFM_USER = 'anishdas';
+const LASTFM_KEY  = 'd20227a0158ed94d4a3eb6a97381eeca';
 const SPOTIFY_UID = '31lxrbb7zxcpmicasuj6jt2n53jy';
 
 function updateSpotifyUI({ track = '', artist = '', isPlaying = false, albumArt = '' } = {}) {
