@@ -343,7 +343,7 @@ section { position: relative; z-index: 2; padding: 6rem 5%; }
 .about-card strong { color: var(--accent3); }
 
 .stats-row {
-  display: grid; grid-template-columns: repeat(4,1fr);
+  display: grid; grid-template-columns: repeat(3,1fr);
   background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
 }
 .stat-item {
