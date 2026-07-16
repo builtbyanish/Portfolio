@@ -1,7 +1,6 @@
 # 🚀 Anish Das | Personal Portfolio
 
 <img width="1918" height="873" alt="image" src="https://github.com/user-attachments/assets/ca8c4b5b-6718-47aa-92d0-40ea239258ec" />
- *(Note: Add a screenshot of your website here and name it preview.png later!)*
 
 A modern, dynamic, and interactive personal portfolio website showcasing my skills, projects, and coding journey as a 3rd-year CSE (AI&ML) student at GITAM University. Built with raw HTML, CSS, and JavaScript without heavy frameworks, focusing on performance, glassmorphism aesthetics, and real-time data integrations.
 
@@ -23,10 +22,6 @@ A modern, dynamic, and interactive personal portfolio website showcasing my skil
   - [Last.fm API](https://www.last.fm/api) for live Spotify track tracking
   - [Alfa LeetCode API](https://alfa-leetcode-api.onrender.com/) for dynamic competitive programming stats
 
-
-## 🌐 Deployment
-
-This project is ready to be deployed instantly on [Vercel](https://vercel.com) or [GitHub Pages](https://pages.github.com/). 
 
 ## 👨‍💻 About Me
 
