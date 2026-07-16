@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Anish Das - CSE AIML Student at GITAM University Vizag | Portfolio showcasing skills in DSA and Full Stack Development" />
+  <title>Anish Das | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <canvas id="bg-canvas"></canvas>
+  <div class="cursor-glow" id="cursor-glow"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-brand">
+      <span class="brand-bracket">&lt;</span>
+      <span class="brand-name">Anish</span>
+      <span class="brand-bracket">/&gt;</span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home"     class="nav-link">Home</a></li>
+      <li><a href="#about"    class="nav-link">About</a></li>
+      <li><a href="#skills"   class="nav-link">Skills</a></li>
+      <li><a href="#repos"    class="nav-link">Projects</a></li>
+      <li><a href="#leetcode" class="nav-link">LeetCode</a></li>
+      <li><a href="#connect"  class="nav-link">Connect</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Available for opportunities
+      </div>
+      <h1 class="hero-title">
+        <span class="greeting">Hey, I'm</span>
+        <span class="name-wrapper">
+          <span class="name-text" id="typed-name"></span>
+          <span class="name-cursor">|</span>
+        </span>
+      </h1>
+      <p class="hero-subtitle">
+        <span class="highlight">CSE (AI&ML)</span> Student &bull; GITAM University, Vizag
+      </p>
+      <p class="hero-desc">
+        3rd Year undergraduate passionate about cracking <span class="code-text">algorithms</span> and building <span class="code-text">full‑stack apps</span> that actually matter.
+      </p>
+      <div class="hero-cta">
+        <a href="#connect" class="btn btn-primary" id="btn-connect">
+          <span>Let's Connect</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#repos" class="btn btn-secondary" id="btn-about">View Projects</a>
+      </div>
+
+      <!-- Social icons in hero -->
+      <div class="hero-socials">
+        <a href="https://www.linkedin.com/in/anish-das-7ba65b320/" target="_blank" rel="noopener" class="social-icon" id="social-linkedin" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="https://github.com/builtbyanish" target="_blank" rel="noopener" class="social-icon" id="social-github" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        </a>
+        <a href="https://www.instagram.com/yrrr_anish/?hl=en" target="_blank" rel="noopener" class="social-icon" id="social-instagram" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://discordapp.com/users/697757845063729194" target="_blank" rel="noopener" class="social-icon" id="social-discord" aria-label="Discord">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 0 0-.079.036c-.21.369-.444.85-.608 1.23a18.566 18.566 0 0 0-5.487 0 12.36 12.36 0 0 0-.617-1.23A.077.077 0 0 0 8.562 3c-1.714.29-3.354.8-4.885 1.491a.07.07 0 0 0-.032.027C.533 9.093-.32 13.555.099 17.961a.08.08 0 0 0 .031.055 20.03 20.03 0 0 0 5.993 2.98.078.078 0 0 0 .084-.026 13.83 13.83 0 0 0 1.226-1.963.074.074 0 0 0-.041-.104 13.175 13.175 0 0 1-1.872-.878.075.075 0 0 1-.008-.125c.126-.093.252-.19.372-.287a.075.075 0 0 1 .078-.01c3.927 1.764 8.18 1.764 12.061 0a.075.075 0 0 1 .079.009c.12.098.245.195.372.288a.075.075 0 0 1-.006.125c-.598.344-1.22.635-1.873.877a.075.075 0 0 0-.041.105c.36.687.772 1.341 1.225 1.962a.077.077 0 0 0 .084.028 19.963 19.963 0 0 0 6.002-2.981.076.076 0 0 0 .032-.054c.5-5.094-.838-9.52-3.549-13.442a.06.06 0 0 0-.031-.028zM8.02 15.278c-1.182 0-2.157-1.069-2.157-2.38 0-1.312.956-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.956 2.38-2.157 2.38zm7.975 0c-1.183 0-2.157-1.069-2.157-2.38 0-1.312.955-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.946 2.38-2.157 2.38z"/></svg>
+        </a>
+        <a href="https://leetcode.com/u/anish1410/" target="_blank" rel="noopener" class="social-icon" id="social-leetcode" aria-label="LeetCode">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.396c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.396a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Floating elements (right side) -->
+    <div class="floating-elements">
+
+      <!-- 🎵 Now Playing card -->
+      <a href="https://open.spotify.com/user/31lxrbb7zxcpmicasuj6jt2n53jy"
+         target="_blank" rel="noopener"
+         class="hero-np-card" id="hero-np-card">
+        <div class="hnp-top">
+          <svg viewBox="0 0 24 24" fill="#1db954" width="13" height="13">
+            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+          </svg>
+          <span class="hnp-label">Now Playing</span>
+          <div class="hnp-eq">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+        <div class="hnp-track" id="hnp-track">Connecting…</div>
+        <div class="hnp-artist" id="hnp-artist"></div>
+        <div class="hnp-bar-wrap">
+          <div class="hnp-bar-fill" id="hnp-bar-fill"></div>
+        </div>
+      </a>
+
+      <div class="float-card card-1">
+        <span class="card-lang">Python</span>
+        <pre><code>def <span class="fn">solve</span>(n):
+  dp = [0]*(n+1)
+  dp[1] = 1
+  <span class="kw">return</span> dp[n]</code></pre>
+      </div>
+      <div class="float-card card-2">
+        <span class="card-lang">React</span>
+        <pre><code><span class="fn">const</span> App = () =&gt;
+  &lt;<span class="kw">div</span>
+    className=<span class="str">"hero"</span>
+  /&gt;</code></pre>
+      </div>
+      <div class="float-card card-3">
+        <span class="card-lang">C++</span>
+        <pre><code><span class="fn">int</span> main() {
+  <span class="kw">vector</span>&lt;int&gt; v;
+  sort(v.begin(),
+       v.end());
+}</code></pre>
+      </div>
+    </div>
+
+    <div class="scroll-indicator" id="scroll-indicator">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      <span>Scroll to explore</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════ ABOUT ═══════════════ -->
+  <section class="about" id="about">
+    <div class="section-header">
+      <span class="section-tag">// about_me</span>
+      <h2 class="section-title">Who Am I?</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-card" id="about-card-1">
+        <div class="card-icon">🎓</div>
+        <h3>Education</h3>
+        <p>B.Tech in <strong>CSE (AI &amp; ML)</strong> at GITAM University, Visakhapatnam. Currently in my <strong>3rd year</strong>, diving deep into the world of intelligent systems.</p>
+      </div>
+      <div class="about-card" id="about-card-2">
+        <div class="card-icon">⚡</div>
+        <h3>Currently Learning</h3>
+        <p>Grinding through <strong>Data Structures &amp; Algorithms</strong> to sharpen problem-solving. Also exploring <strong>Full Stack Development</strong> to bring ideas to life on the web.</p>
+      </div>
+      <div class="about-card" id="about-card-3">
+        <div class="card-icon">🤖</div>
+        <h3>Interests</h3>
+        <p>Fascinated by <strong>Artificial Intelligence &amp; Machine Learning</strong>. Love competitive programming, building projects, and staying curious about emerging tech.</p>
+      </div>
+    </div>
+    <div class="stats-row">
+      <div class="stat-item" id="stat-1">
+        <span class="stat-number" data-target="3">0</span>
+        <span class="stat-label">Year of B.Tech</span>
+      </div>
+      <div class="stat-item" id="stat-2">
+        <span class="stat-number" id="lc-total-stat" data-target="0">0</span><span class="stat-suffix" id="lc-suffix">+</span>
+        <span class="stat-label">LeetCode Solved</span>
+      </div>
+      <div class="stat-item" id="stat-3">
+        <span class="stat-number" id="gh-repo-stat" data-target="0">0</span>
+        <span class="stat-label">GitHub Repos</span>
+      </div>
+      <div class="stat-item" id="stat-4">
+        <span class="stat-number" data-target="2">0</span>
+        <span class="stat-label">Hackathons</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ SKILLS ═══════════════ -->
+  <section class="skills" id="skills">
+    <div class="section-header">
+      <span class="section-tag">// tech_stack</span>
+      <h2 class="section-title">Skills &amp; Tools</h2>
+    </div>
+    <div class="skills-container">
+      <div class="skill-category" id="skill-cat-1">
+        <h3 class="category-title"><span class="cat-icon">🧠</span> AI / ML</h3>
+        <div class="skill-pills">
+          <span class="pill">Python</span><span class="pill">NumPy</span>
+          <span class="pill">Pandas</span><span class="pill">Scikit-learn</span>
+          <span class="pill">TensorFlow</span>
+        </div>
+      </div>
+      <div class="skill-category" id="skill-cat-2">
+        <h3 class="category-title"><span class="cat-icon">🌐</span> Full Stack</h3>
+        <div class="skill-pills">
+          <span class="pill">HTML/CSS</span><span class="pill">JavaScript</span>
+          <span class="pill">React</span><span class="pill">Node.js</span>
+          <span class="pill">MongoDB</span>
+        </div>
+      </div>
+      <div class="skill-category" id="skill-cat-3">
+        <h3 class="category-title"><span class="cat-icon">⚙️</span> DSA &amp; CS</h3>
+        <div class="skill-pills">
+          <span class="pill">C++</span><span class="pill">Algorithms</span>
+          <span class="pill">Data Structures</span><span class="pill">OOP</span>
+          <span class="pill">SQL</span>
+        </div>
+      </div>
+      <div class="skill-category" id="skill-cat-4">
+        <h3 class="category-title"><span class="cat-icon">🛠️</span> Tools</h3>
+        <div class="skill-pills">
+          <span class="pill">Git</span><span class="pill">GitHub</span>
+          <span class="pill">VS Code</span><span class="pill">Linux</span>
+          <span class="pill">Postman</span>
+        </div>
+      </div>
+    </div>
+    <div class="ticker-wrapper">
+      <div class="ticker-track">
+        <span>Python</span><span>•</span><span>React</span><span>•</span>
+        <span>Node.js</span><span>•</span><span>C++</span><span>•</span>
+        <span>TensorFlow</span><span>•</span><span>MongoDB</span><span>•</span>
+        <span>Git</span><span>•</span><span>Algorithms</span><span>•</span>
+        <span>Machine Learning</span><span>•</span><span>Full Stack</span><span>•</span>
+        <span>LeetCode</span><span>•</span><span>DSA</span><span>•</span>
+        <span>Python</span><span>•</span><span>React</span><span>•</span>
+        <span>Node.js</span><span>•</span><span>C++</span><span>•</span>
+        <span>TensorFlow</span><span>•</span><span>MongoDB</span><span>•</span>
+        <span>Git</span><span>•</span><span>Algorithms</span><span>•</span>
+        <span>Machine Learning</span><span>•</span><span>Full Stack</span><span>•</span>
+        <span>LeetCode</span><span>•</span><span>DSA</span><span>•</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ GITHUB REPOS ═══════════════ -->
+  <section class="repos-section" id="repos">
+    <div class="section-header">
+      <span class="section-tag">// github_projects</span>
+      <h2 class="section-title">GitHub Repositories</h2>
+      <p class="section-sub">Latest open-source work from <a href="https://github.com/builtbyanish" target="_blank" class="accent-link">@builtbyanish</a></p>
+    </div>
+    <div class="repos-grid" id="repos-grid">
+      <!-- Skeleton loaders -->
+      <div class="repo-skeleton"></div>
+      <div class="repo-skeleton"></div>
+      <div class="repo-skeleton"></div>
+      <div class="repo-skeleton"></div>
+      <div class="repo-skeleton"></div>
+      <div class="repo-skeleton"></div>
+    </div>
+    <div class="repos-cta">
+      <a href="https://github.com/builtbyanish" target="_blank" rel="noopener" class="btn btn-secondary" id="btn-repos">
+        View All on GitHub ↗
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════════ LEETCODE ═══════════════ -->
+  <section class="leetcode-section" id="leetcode">
+    <div class="section-header">
+      <span class="section-tag">// dsa_grind</span>
+      <h2 class="section-title">LeetCode Progress</h2>
+      <p class="section-sub">Consistently solving problems — check my profile <a href="https://leetcode.com/u/anish1410/" target="_blank" class="accent-link">@anish1410</a></p>
+    </div>
+    <div class="lc-wrapper">
+      <!-- Left: Donut chart + total -->
+      <div class="lc-left">
+        <div class="lc-donut-wrap">
+          <svg class="lc-donut" viewBox="0 0 160 160" id="lc-donut-svg">
+            <!-- Rings drawn by JS -->
+            <circle class="donut-bg"     cx="80" cy="80" r="62" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="14"/>
+            <circle class="donut-hard"   cx="80" cy="80" r="62" fill="none" stroke="#ef4444" stroke-width="14" stroke-linecap="round" stroke-dasharray="0 999" transform="rotate(-90 80 80)" id="ring-hard"/>
+            <circle class="donut-medium" cx="80" cy="80" r="62" fill="none" stroke="#f59e0b" stroke-width="14" stroke-linecap="round" stroke-dasharray="0 999" transform="rotate(-90 80 80)" id="ring-medium"/>
+            <circle class="donut-easy"   cx="80" cy="80" r="62" fill="none" stroke="#22c55e" stroke-width="14" stroke-linecap="round" stroke-dasharray="0 999" transform="rotate(-90 80 80)" id="ring-easy"/>
+          </svg>
+          <div class="lc-center-text">
+            <span class="lc-total-num" id="lc-total-num">—</span>
+            <span class="lc-total-lbl">Solved</span>
+          </div>
+        </div>
+        <!-- Legend -->
+        <div class="lc-legend">
+          <div class="lc-legend-item">
+            <span class="lc-dot easy"></span>
+            <span class="lc-diff-label">Easy</span>
+            <span class="lc-diff-num" id="lc-easy">—</span>
+          </div>
+          <div class="lc-legend-item">
+            <span class="lc-dot medium"></span>
+            <span class="lc-diff-label">Medium</span>
+            <span class="lc-diff-num" id="lc-medium">—</span>
+          </div>
+          <div class="lc-legend-item">
+            <span class="lc-dot hard"></span>
+            <span class="lc-diff-label">Hard</span>
+            <span class="lc-diff-num" id="lc-hard">—</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Heatmap image from leetcard -->
+      <div class="lc-right">
+        <div class="lc-heatmap-wrap">
+          <p class="lc-heatmap-label">Submission Activity</p>
+          <div class="lc-card-img-wrap">
+            <img
+              id="lc-heatmap-img"
+              src="https://leetcard.jacoblin.cool/anish1410?theme=dark&font=Outfit&ext=heatmap&border=0&radius=8&site=leetcode"
+              alt="LeetCode stats card for anish1410"
+              class="lc-card-img"
+              loading="lazy"
+              onerror="this.parentElement.innerHTML='<div class=\'lc-fallback\'><p>Stats card could not load</p><a href=\'https://leetcode.com/u/anish1410/\' target=\'_blank\' class=\'btn btn-secondary\' style=\'margin-top:.75rem;\'>View on LeetCode ↗</a></div>'"
+            />
+          </div>
+        </div>
+        <div class="lc-rank-box" id="lc-rank-box">
+          <span class="lc-rank-label">Global Rank</span>
+          <span class="lc-rank-val" id="lc-rank">Loading…</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="repos-cta">
+      <a href="https://leetcode.com/u/anish1410/" target="_blank" rel="noopener" class="btn btn-primary" id="btn-lc">
+        <span>View LeetCode Profile</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+
+
+  <!-- ═══════════════ CONNECT ═══════════════ -->
+  <section class="connect" id="connect">
+    <div class="section-header">
+      <span class="section-tag">// find_me_on</span>
+      <h2 class="section-title">Let's Connect</h2>
+      <p class="section-sub">I'm always open to new opportunities, collaborations, or just a good tech conversation!</p>
+    </div>
+
+    <div class="connect-grid">
+      <a href="https://www.linkedin.com/in/anish-das-7ba65b320/" target="_blank" rel="noopener" class="connect-card" id="connect-linkedin" aria-label="Connect on LinkedIn">
+        <div class="connect-icon linkedin-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </div>
+        <div class="connect-info">
+          <h3>LinkedIn</h3>
+          <p>Professional network &amp; career updates</p>
+        </div>
+        <div class="connect-arrow">↗</div>
+      </a>
+
+      <a href="https://github.com/builtbyanish" target="_blank" rel="noopener" class="connect-card" id="connect-github" aria-label="Visit GitHub profile">
+        <div class="connect-icon github-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        </div>
+        <div class="connect-info">
+          <h3>GitHub</h3>
+          <p>Open source projects &amp; code repos</p>
+        </div>
+        <div class="connect-arrow">↗</div>
+      </a>
+
+      <a href="https://leetcode.com/u/anish1410/" target="_blank" rel="noopener" class="connect-card" id="connect-leetcode" aria-label="LeetCode Profile">
+        <div class="connect-icon leetcode-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.396c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.396a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/></svg>
+        </div>
+        <div class="connect-info">
+          <h3>LeetCode</h3>
+          <p>DSA problems &amp; coding challenges</p>
+        </div>
+        <div class="connect-arrow">↗</div>
+      </a>
+
+      <a href="https://www.instagram.com/yrrr_anish/?hl=en" target="_blank" rel="noopener" class="connect-card" id="connect-instagram" aria-label="Follow on Instagram">
+        <div class="connect-icon instagram-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </div>
+        <div class="connect-info">
+          <h3>Instagram</h3>
+          <p>Life beyond the screen</p>
+        </div>
+        <div class="connect-arrow">↗</div>
+      </a>
+
+      <a href="https://discordapp.com/users/697757845063729194" target="_blank" rel="noopener" class="connect-card" id="connect-discord" aria-label="Join Discord">
+        <div class="connect-icon discord-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 0 0-.079.036c-.21.369-.444.85-.608 1.23a18.566 18.566 0 0 0-5.487 0 12.36 12.36 0 0 0-.617-1.23A.077.077 0 0 0 8.562 3c-1.714.29-3.354.8-4.885 1.491a.07.07 0 0 0-.032.027C.533 9.093-.32 13.555.099 17.961a.08.08 0 0 0 .031.055 20.03 20.03 0 0 0 5.993 2.98.078.078 0 0 0 .084-.026 13.83 13.83 0 0 0 1.226-1.963.074.074 0 0 0-.041-.104 13.175 13.175 0 0 1-1.872-.878.075.075 0 0 1-.008-.125c.126-.093.252-.19.372-.287a.075.075 0 0 1 .078-.01c3.927 1.764 8.18 1.764 12.061 0a.075.075 0 0 1 .079.009c.12.098.245.195.372.288a.075.075 0 0 1-.006.125c-.598.344-1.22.635-1.873.877a.075.075 0 0 0-.041.105c.36.687.772 1.341 1.225 1.962a.077.077 0 0 0 .084.028 19.963 19.963 0 0 0 6.002-2.981.076.076 0 0 0 .032-.054c.5-5.094-.838-9.52-3.549-13.442a.06.06 0 0 0-.031-.028zM8.02 15.278c-1.182 0-2.157-1.069-2.157-2.38 0-1.312.956-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.956 2.38-2.157 2.38zm7.975 0c-1.183 0-2.157-1.069-2.157-2.38 0-1.312.955-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.946 2.38-2.157 2.38z"/></svg>
+        </div>
+        <div class="connect-info">
+          <h3>Discord</h3>
+          <p>Gaming, coding chats &amp; communities</p>
+        </div>
+        <div class="connect-arrow">↗</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="brand-bracket">&lt;</span>
+        <span class="brand-name">Anish</span>
+        <span class="brand-bracket">/&gt;</span>
+      </div>
+      <p class="footer-tagline">Built with ❤️ &amp; lots of ☕ | GITAM University, Vizag</p>
+      <p class="footer-copy">&copy; 2024 Anish Das. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ═══ NOW PLAYING BAR (fixed bottom) ═══ -->
+  <div class="now-playing-bar" id="now-playing-bar">
+    <a href="https://open.spotify.com/user/31lxrbb7zxcpmicasuj6jt2n53jy" target="_blank" rel="noopener" class="np-art" id="np-art">
+      <svg viewBox="0 0 24 24" fill="#1db954" width="22" height="22"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+    </a>
+    <div class="np-meta">
+      <span class="np-status" id="np-status">▶ Now Playing</span>
+      <span class="np-track"  id="np-track">Loading…</span>
+      <span class="np-artist" id="np-artist"></span>
+    </div>
+    <div class="np-progress-wrap">
+      <div class="np-progress">
+        <div class="np-progress-fill" id="np-progress-fill"></div>
+      </div>
+    </div>
+    <div class="np-eq">
+      <span class="np-bar"></span><span class="np-bar"></span>
+      <span class="np-bar"></span><span class="np-bar"></span>
+      <span class="np-bar"></span>
+    </div>
+    <button class="np-close" id="np-close" aria-label="Close">✕</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
