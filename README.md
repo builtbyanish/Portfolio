@@ -1,6 +1,7 @@
 # 🚀 Anish Das | Personal Portfolio
 
-![Portfolio Preview](./preview.png) *(Note: Add a screenshot of your website here and name it preview.png later!)*
+<img width="1918" height="873" alt="image" src="https://github.com/user-attachments/assets/ca8c4b5b-6718-47aa-92d0-40ea239258ec" />
+ *(Note: Add a screenshot of your website here and name it preview.png later!)*
 
 A modern, dynamic, and interactive personal portfolio website showcasing my skills, projects, and coding journey as a 3rd-year CSE (AI&ML) student at GITAM University. Built with raw HTML, CSS, and JavaScript without heavy frameworks, focusing on performance, glassmorphism aesthetics, and real-time data integrations.
 
@@ -22,21 +23,6 @@ A modern, dynamic, and interactive personal portfolio website showcasing my skil
   - [Last.fm API](https://www.last.fm/api) for live Spotify track tracking
   - [Alfa LeetCode API](https://alfa-leetcode-api.onrender.com/) for dynamic competitive programming stats
 
-## 🚀 Running Locally
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/builtbyanish/portfolio.git
-   ```
-2. Navigate into the directory:
-   ```bash
-   cd portfolio
-   ```
-3. Open `index.html` in your browser, or run a live server:
-   ```bash
-   # If you have Node.js and the 'serve' package installed
-   npx serve .
-   ```
 
 ## 🌐 Deployment
 
