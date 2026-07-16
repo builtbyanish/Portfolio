@@ -632,6 +632,7 @@ if (idCard && idBody) {
   idBody.addEventListener('touchstart', startDrag, { passive: true });
 
   function startDrag(e) {
+    if (e.cancelable) e.preventDefault(); // Stop default browser drag-and-drop actions
     isDragging = true;
     idCard.classList.remove('releasing');
     idCard.style.animation = 'none'; // Pause automatic sway
