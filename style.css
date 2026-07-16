@@ -479,7 +479,8 @@ section { position: relative; z-index: 2; padding: 6rem 5%; }
 }
 .about-card.visible { opacity: 1; transform: translateY(0); }
 .about-card:hover { border-color: var(--accent2); transform: translateY(-6px); box-shadow: 0 20px 40px rgba(239,68,68,.15); }
-.card-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.card-icon { margin-bottom: 1rem; color: var(--accent2); }
+.card-icon svg { width: 2.2rem; height: 2.2rem; }
 .about-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: .75rem; }
 .about-card p  { color: var(--text-muted); line-height: 1.7; font-size: .95rem; }
 .about-card strong { color: var(--accent3); }
@@ -514,6 +515,8 @@ section { position: relative; z-index: 2; padding: 6rem 5%; }
 .skill-category.visible { opacity: 1; transform: translateY(0); }
 .skill-category:hover { border-color: var(--border2); background: var(--surface2); transform: translateY(-4px); }
 .category-title { font-size: 1rem; font-weight: 700; margin-bottom: 1rem; display: flex; align-items: center; gap: .5rem; }
+.cat-icon { display: inline-flex; color: var(--accent2); }
+.cat-icon svg { width: 1.1rem; height: 1.1rem; }
 .skill-pills { display: flex; flex-wrap: wrap; gap: .5rem; }
 .pill {
   padding: .3rem .85rem; background: rgba(239,68,68,.12);
@@ -893,7 +896,10 @@ section { position: relative; z-index: 2; padding: 6rem 5%; }
   border-radius: 4px;
   transition: color 0.2s;
   flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
 }
+.np-close svg { width: 14px; height: 14px; }
 .np-close:hover { color: var(--text); }
 
 /* Footer needs extra bottom padding when bar is active */
@@ -964,6 +970,7 @@ section { position: relative; z-index: 2; padding: 6rem 5%; }
 }
 .footer-brand { font-family: var(--font-mono); font-size: 1.2rem; font-weight: 700; margin-bottom: .75rem; }
 .footer-tagline { color: var(--text-muted); font-size: .9rem; margin-bottom: .5rem; }
+.footer-tagline .tag-icon { width: 14px; height: 14px; vertical-align: -2px; color: var(--accent2); }
 .footer-copy    { color: var(--text-dim); font-size: .8rem; }
 
 /* ── ANIMATIONS ───────────────────────────── */
