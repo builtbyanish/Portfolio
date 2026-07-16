@@ -572,3 +572,64 @@ document.getElementById('np-close')?.addEventListener('click', () => {
 });
 
 const SP_CARD_URL  = `https://spotify-github-profile.vercel.app/api/view?uid=${SPOTIFY_UID}&cover_image=true&theme=natemoo-re&show_offline=false`;
+
+// ── Drag & Swing ID Card ─────────────────────
+const idCard = document.querySelector('.hanging-id-card');
+const idBody = document.querySelector('.id-card-body');
+
+if (idCard && idBody) {
+  let isDragging = false;
+  let startX = 0;
+  let currentRotation = 0;
+
+  idBody.addEventListener('mousedown', startDrag);
+  idBody.addEventListener('touchstart', startDrag, { passive: true });
+
+  function startDrag(e) {
+    isDragging = true;
+    idCard.classList.remove('releasing');
+    idCard.style.animation = 'none'; // Pause automatic sway
+    startX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+    document.body.style.userSelect = 'none';
+    idBody.style.cursor = 'grabbing';
+    
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('touchmove', drag, { passive: false });
+    document.addEventListener('mouseup', endDrag);
+    document.addEventListener('touchend', endDrag);
+  }
+
+  function drag(e) {
+    if (!isDragging) return;
+    if (e.cancelable) e.preventDefault();
+    const currentX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+    const deltaX = currentX - startX;
+    
+    // Limit rotation between -45 and 45 degrees
+    currentRotation = Math.max(Math.min(deltaX * 0.15, 45), -45);
+    idCard.style.transform = `rotate(${currentRotation}deg)`;
+  }
+
+  function endDrag() {
+    if (!isDragging) return;
+    isDragging = false;
+    document.body.style.userSelect = '';
+    idBody.style.cursor = 'grab';
+    
+    document.removeEventListener('mousemove', drag);
+    document.removeEventListener('touchmove', drag);
+    document.removeEventListener('mouseup', endDrag);
+    document.removeEventListener('touchend', endDrag);
+
+    // Spring back transition
+    idCard.classList.add('releasing');
+    idCard.style.transform = 'rotate(0deg)';
+    
+    // Resume auto-sway after spring-back finishes
+    setTimeout(() => {
+      idCard.classList.remove('releasing');
+      idCard.style.transform = '';
+      idCard.style.animation = 'sway 5s ease-in-out infinite alternate';
+    }, 800);
+  }
+}

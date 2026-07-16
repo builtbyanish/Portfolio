@@ -215,6 +215,9 @@ body {
   animation: dropIn 1.6s cubic-bezier(0.175, 0.885, 0.32, 1.15) forwards,
              sway 5s ease-in-out infinite alternate 1.6s;
 }
+.hanging-id-card.releasing {
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
 @keyframes dropIn {
   0% { top: -600px; }
@@ -257,6 +260,7 @@ body {
   -webkit-backdrop-filter: blur(12px);
   color: var(--text);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: grab;
 }
 .id-card-body:hover {
   transform: scale(1.03) translateY(4px);
