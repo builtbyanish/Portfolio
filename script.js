@@ -630,6 +630,7 @@ if (idCard && idBody && idShine) {
   let startY = 0;
   let currentRotation = 0;
   let currentY = 0;
+  const lanyardStrap = document.querySelector('.lanyard-strap');
 
   idBody.addEventListener('mousedown', startDrag);
   idBody.addEventListener('touchstart', startDrag, { passive: true });
@@ -666,6 +667,7 @@ if (idCard && idBody && idShine) {
     if (e.cancelable) e.preventDefault();
     isDragging = true;
     idCard.classList.remove('releasing');
+    lanyardStrap.style.transition = 'none';
     idCard.style.animation = 'none'; // Pause automatic sway
     
     // Reset 3D tilt when dragging starts
@@ -693,11 +695,11 @@ if (idCard && idBody && idShine) {
     const deltaX = currX - startX;
     const deltaY = currY - startY;
     
-    // Allow dragging down, and a little bit up
     currentY = Math.max(deltaY, -30);
     
     currentRotation = -Math.max(Math.min(deltaX * 0.15, 45), -45);
-    idCard.style.transform = `translateY(${currentY}px) rotate(${currentRotation}deg)`;
+    idCard.style.transform = `rotate(${currentRotation}deg)`;
+    lanyardStrap.style.height = `${90 + currentY}px`;
   }
 
   function endDrag() {
@@ -713,7 +715,9 @@ if (idCard && idBody && idShine) {
 
     // Spring back transition
     idCard.classList.add('releasing');
-    idCard.style.transform = 'translateY(0px) rotate(0deg)';
+    lanyardStrap.style.transition = 'height 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+    idCard.style.transform = 'rotate(0deg)';
+    lanyardStrap.style.height = '90px';
     
     // Resume auto-sway after spring-back finishes
     setTimeout(() => {
