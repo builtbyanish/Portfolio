@@ -58,7 +58,7 @@ class Particle {
     this.vx = (Math.random() - 0.5) * 0.35;
     this.vy = (Math.random() - 0.5) * 0.35;
     this.a  = Math.random() * 0.6 + 0.2;
-    this.color = Math.random() > .5 ? '124,58,237' : '6,182,212';
+    this.color = Math.random() > .5 ? '239,68,68' : '220,38,38';
   }
   update() {
     this.x += this.vx; this.y += this.vy;
@@ -83,7 +83,7 @@ function drawLines() {
         ctx.beginPath();
         ctx.moveTo(PARTICLES[i].x, PARTICLES[i].y);
         ctx.lineTo(PARTICLES[j].x, PARTICLES[j].y);
-        ctx.strokeStyle = `rgba(124,58,237,${.08*(1-d/120)})`;
+        ctx.strokeStyle = `rgba(239,68,68,${.08*(1-d/120)})`;
         ctx.lineWidth = 0.5;
         ctx.stroke();
       }
