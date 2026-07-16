@@ -191,21 +191,21 @@ body {
 }
 /* Re-enable pointer events for the NP card specifically */
 .hero-np-card { pointer-events: all; }
-.float-card {
-  background: rgba(10,15,36,0.85); border: 1px solid var(--border2);
-  border-radius: var(--radius); padding: 1rem 1.25rem;
-  backdrop-filter: blur(12px); font-family: var(--font-mono);
-  font-size: .72rem; line-height: 1.6; max-width: 220px;
+.hero-profile-img {
+  width: 320px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 48px rgba(124, 58, 237, 0.25);
+  animation: floatB 7s ease-in-out infinite;
+  pointer-events: auto;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
-.card-lang {
-  display: inline-block; font-size: .65rem; font-weight: 700;
-  color: var(--accent2); background: rgba(124,58,237,.15);
-  padding: 2px 8px; border-radius: 4px; margin-bottom: .5rem;
+.hero-profile-img:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 24px 56px rgba(124, 58, 237, 0.4);
 }
-.float-card code { color: var(--text-muted); }
-.float-card .fn  { color: #7dd3fc; }
-.float-card .kw  { color: var(--accent2); }
-.float-card .str { color: #86efac; }
 .card-1 { animation: floatA 6s ease-in-out infinite; }
 .card-2 { animation: floatB 7s ease-in-out infinite; }
 .card-3 { animation: floatC 5s ease-in-out infinite; }
