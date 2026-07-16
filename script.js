@@ -619,11 +619,12 @@ document.getElementById('np-close')?.addEventListener('click', () => {
 
 const SP_CARD_URL  = `https://spotify-github-profile.vercel.app/api/view?uid=${SPOTIFY_UID}&cover_image=true&theme=natemoo-re&show_offline=false`;
 
-// ── Drag & Swing ID Card ─────────────────────
+// ── Drag & Swing ID Card + 3D Parallax Tilt & Shine ────────
 const idCard = document.querySelector('.hanging-id-card');
 const idBody = document.querySelector('.id-card-body');
+const idShine = document.querySelector('.id-card-shine');
 
-if (idCard && idBody) {
+if (idCard && idBody && idShine) {
   let isDragging = false;
   let startX = 0;
   let currentRotation = 0;
@@ -631,11 +632,45 @@ if (idCard && idBody) {
   idBody.addEventListener('mousedown', startDrag);
   idBody.addEventListener('touchstart', startDrag, { passive: true });
 
+  // 3D Tilt & Shine Event Listeners
+  idBody.addEventListener('mousemove', (e) => {
+    if (isDragging) return; // Skip 3D tilt when actively dragging
+
+    idBody.classList.add('tilting');
+    const rect = idBody.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    // Normalize values between -0.5 and 0.5
+    const normalizedX = (x / rect.width) - 0.5;
+    const normalizedY = (y / rect.height) - 0.5;
+
+    // Calculate rotation angles (Max 22 degrees)
+    const rotateX = -normalizedY * 22;
+    const rotateY = normalizedX * 22;
+
+    idBody.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    idShine.style.opacity = 1;
+    idShine.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255, 255, 255, 0.22) 0%, transparent 80%)`;
+  });
+
+  idBody.addEventListener('mouseleave', () => {
+    idBody.classList.remove('tilting');
+    idBody.style.transform = 'rotateX(0deg) rotateY(0deg)';
+    idShine.style.opacity = 0;
+  });
+
   function startDrag(e) {
-    if (e.cancelable) e.preventDefault(); // Stop default browser drag-and-drop actions
+    if (e.cancelable) e.preventDefault();
     isDragging = true;
     idCard.classList.remove('releasing');
     idCard.style.animation = 'none'; // Pause automatic sway
+    
+    // Reset 3D tilt when dragging starts
+    idBody.classList.remove('tilting');
+    idBody.style.transform = 'rotateX(0deg) rotateY(0deg)';
+    idShine.style.opacity = 0;
+
     startX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
     document.body.style.userSelect = 'none';
     idBody.style.cursor = 'grabbing';
@@ -652,7 +687,6 @@ if (idCard && idBody) {
     const currentX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
     const deltaX = currentX - startX;
     
-    // Limit rotation between -45 and 45 degrees
     currentRotation = -Math.max(Math.min(deltaX * 0.15, 45), -45);
     idCard.style.transform = `rotate(${currentRotation}deg)`;
   }

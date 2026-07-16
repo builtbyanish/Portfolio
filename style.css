@@ -212,6 +212,8 @@ body {
   align-items: center;
   pointer-events: auto;
   transform-origin: top center;
+  perspective: 1000px;
+  transform-style: preserve-3d;
   animation: dropIn 1.6s cubic-bezier(0.175, 0.885, 0.32, 1.15) forwards,
              sway 5s ease-in-out infinite alternate 1.6s;
 }
@@ -259,12 +261,34 @@ body {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   color: var(--text);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: grab;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
+}
+.id-card-body.tilting {
+  transition: box-shadow 0.3s ease; /* Responsive hover tilt */
 }
 .id-card-body:hover {
-  transform: scale(1.03) translateY(4px);
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.95), 0 0 40px rgba(239, 68, 68, 0.3);
+}
+
+.id-card-shine {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 99;
+  opacity: 0;
+  mix-blend-mode: overlay;
+  transition: opacity 0.4s ease;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 85%);
+}
+
+.id-card-header,
+.id-card-photo-wrap,
+.id-card-details {
+  transform: translateZ(28px);
 }
 
 .id-card-header {
