@@ -32,9 +32,16 @@
   --radius:      16px;
   --radius-sm:   8px;
   --transition:  0.3s cubic-bezier(0.4,0,0.2,1);
-  --font-main:   'Courier Prime', monospace;
+  --font-main:   'OCR-A', monospace;
   --font-dots:   'Codystar', cursive;
   --font-mono:   'JetBrains Mono', monospace;
+}
+
+@font-face {
+  font-family: 'OCR-A';
+  src: url('./fonts/OCRA.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 html { scroll-behavior: smooth; }
