@@ -949,6 +949,7 @@ section { position: relative; z-index: 2; padding: 6rem 5%; }
 .instagram-icon { background: rgba(228,64,95,.15);   color: #e4405f; }
 .spotify-icon   { background: rgba(29,185,84,.15);   color: #1db954; }
 .discord-icon   { background: rgba(88,101,242,.15);  color: #5865f2; }
+.twitter-icon   { background: rgba(29,161,242,.15);  color: #1da1f2; }
 
 .connect-info h3 { font-size: 1rem; font-weight: 700; margin-bottom: .25rem; }
 .connect-info p  { font-size: .8rem; color: var(--text-muted); }

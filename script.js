@@ -627,7 +627,9 @@ const idShine = document.querySelector('.id-card-shine');
 if (idCard && idBody && idShine) {
   let isDragging = false;
   let startX = 0;
+  let startY = 0;
   let currentRotation = 0;
+  let currentY = 0;
 
   idBody.addEventListener('mousedown', startDrag);
   idBody.addEventListener('touchstart', startDrag, { passive: true });
@@ -672,6 +674,7 @@ if (idCard && idBody && idShine) {
     idShine.style.opacity = 0;
 
     startX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+    startY = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
     document.body.style.userSelect = 'none';
     idBody.style.cursor = 'grabbing';
     
@@ -684,11 +687,17 @@ if (idCard && idBody && idShine) {
   function drag(e) {
     if (!isDragging) return;
     if (e.cancelable) e.preventDefault();
-    const currentX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
-    const deltaX = currentX - startX;
+    const currX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+    const currY = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
+    
+    const deltaX = currX - startX;
+    const deltaY = currY - startY;
+    
+    // Allow dragging down, and a little bit up
+    currentY = Math.max(deltaY, -30);
     
     currentRotation = -Math.max(Math.min(deltaX * 0.15, 45), -45);
-    idCard.style.transform = `rotate(${currentRotation}deg)`;
+    idCard.style.transform = `translateY(${currentY}px) rotate(${currentRotation}deg)`;
   }
 
   function endDrag() {
@@ -704,7 +713,7 @@ if (idCard && idBody && idShine) {
 
     // Spring back transition
     idCard.classList.add('releasing');
-    idCard.style.transform = 'rotate(0deg)';
+    idCard.style.transform = 'translateY(0px) rotate(0deg)';
     
     // Resume auto-sway after spring-back finishes
     setTimeout(() => {
