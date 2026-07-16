@@ -204,7 +204,7 @@ body {
 /* 🪪 Hanging ID Card */
 .hanging-id-card {
   position: absolute;
-  top: 0;
+  top: -600px;
   right: 12%;
   z-index: 10;
   display: flex;
@@ -212,7 +212,13 @@ body {
   align-items: center;
   pointer-events: auto;
   transform-origin: top center;
-  animation: sway 5s ease-in-out infinite alternate;
+  animation: dropIn 1.6s cubic-bezier(0.175, 0.885, 0.32, 1.15) forwards,
+             sway 5s ease-in-out infinite alternate 1.6s;
+}
+
+@keyframes dropIn {
+  0% { top: -600px; }
+  100% { top: 0; }
 }
 
 @keyframes sway {
