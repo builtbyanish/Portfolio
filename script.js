@@ -606,7 +606,7 @@ if (idCard && idBody) {
     const deltaX = currentX - startX;
     
     // Limit rotation between -45 and 45 degrees
-    currentRotation = Math.max(Math.min(deltaX * 0.15, 45), -45);
+    currentRotation = -Math.max(Math.min(deltaX * 0.15, 45), -45);
     idCard.style.transform = `rotate(${currentRotation}deg)`;
   }
 
