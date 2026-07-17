@@ -1,6 +1,7 @@
 # Anish Das | Personal Portfolio
 
-**Live Website:** https://portfolio-ten-kohl-0wwvuks75o.vercel.app/
+**Live Website:** 
+https://anish-das.vercel.app/
 
 <img width="1918" height="873" alt="Portfolio Preview" src="https://github.com/user-attachments/assets/ca8c4b5b-6718-47aa-92d0-40ea239258ec" />
 
@@ -39,7 +40,7 @@ A modern, dynamic, and interactive personal portfolio website showcasing my skil
 ## Live Demo
 
 **Visit my portfolio:**
-**https://portfolio-ten-kohl-0wwvuks75o.vercel.app/**
+https://anish-das.vercel.app/
 
 ## Preview
 
