@@ -48,14 +48,22 @@ navLinks.querySelectorAll('.nav-link').forEach(link => {
   });
 });
 
-// ── Animated particle canvas ──────────────────
+// ── Animated binary-rain canvas ───────────────
 const canvas = document.getElementById('bg-canvas');
 const ctx    = canvas.getContext('2d');
-let W, H, PARTICLES = [];
+let W, H;
+const FONT_SIZE = 16;
+let COLUMNS = [];
 
 function resize() {
   W = canvas.width  = window.innerWidth;
   H = canvas.height = window.innerHeight;
+  const colCount = Math.ceil(W / FONT_SIZE);
+  COLUMNS = Array.from({ length: colCount }, (_, i) => COLUMNS[i] || {
+    y: Math.random() * -H,
+    speed: Math.random() * 2 + 1.5,
+    trail: Math.floor(Math.random() * 12) + 6,
+  });
 }
 window.addEventListener('resize', resize);
 resize();
@@ -77,57 +85,47 @@ class Ripple {
   draw() {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-    ctx.strokeStyle = `rgba(239, 68, 68, ${this.a * 0.35})`;
-    ctx.lineWidth = 1.2;
+    ctx.strokeStyle = `rgba(239, 68, 68, ${this.a * 0.5})`;
+    ctx.lineWidth = 1.5;
+    ctx.shadowColor = 'rgba(239, 68, 68, 0.8)';
+    ctx.shadowBlur = 12;
     ctx.stroke();
+    ctx.shadowBlur = 0;
   }
 }
 let RIPPLES = [];
 
-class Particle {
-  constructor() { this.reset(true); }
-  reset(init = false) {
-    this.x  = Math.random() * W;
-    this.y  = init ? Math.random() * H : (Math.random() > .5 ? -5 : H + 5);
-    this.r  = Math.random() * 1.5 + 0.3;
-    this.vx = (Math.random() - 0.5) * 0.35;
-    this.vy = (Math.random() - 0.5) * 0.35;
-    this.a  = Math.random() * 0.6 + 0.2;
-    this.color = Math.random() > .5 ? '239,68,68' : '220,38,38';
-  }
-  update() {
-    this.x += this.vx; this.y += this.vy;
-    if (this.x < -10 || this.x > W+10 || this.y < -10 || this.y > H+10) this.reset();
-  }
-  draw() {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(${this.color},${this.a})`;
-    ctx.fill();
-  }
-}
-for (let i = 0; i < 90; i++) PARTICLES.push(new Particle());
-
-function drawLines() {
-  for (let i = 0; i < PARTICLES.length; i++) {
-    for (let j = i+1; j < PARTICLES.length; j++) {
-      const dx = PARTICLES[i].x - PARTICLES[j].x;
-      const dy = PARTICLES[i].y - PARTICLES[j].y;
-      const d  = Math.sqrt(dx*dx + dy*dy);
-      if (d < 120) {
-        ctx.beginPath();
-        ctx.moveTo(PARTICLES[i].x, PARTICLES[i].y);
-        ctx.lineTo(PARTICLES[j].x, PARTICLES[j].y);
-        ctx.strokeStyle = `rgba(239,68,68,${.08*(1-d/120)})`;
-        ctx.lineWidth = 0.5;
-        ctx.stroke();
-      }
+function drawBinaryRain() {
+  ctx.font = `${FONT_SIZE}px 'JetBrains Mono', monospace`;
+  ctx.textBaseline = 'top';
+  COLUMNS.forEach((col, i) => {
+    const x = i * FONT_SIZE;
+    for (let t = 0; t < col.trail; t++) {
+      const y = col.y - t * FONT_SIZE;
+      if (y < -FONT_SIZE || y > H) continue;
+      const char = Math.random() > 0.5 ? '1' : '0';
+      const fade = 1 - t / col.trail;
+      const alpha = t === 0 ? 0.9 : fade * 0.45;
+      ctx.fillStyle = t === 0
+        ? `rgba(255,120,120,${alpha})`
+        : `rgba(239,68,68,${alpha})`;
+      ctx.fillText(char, x, y);
     }
-  }
+    col.y += col.speed;
+    if (col.y - col.trail * FONT_SIZE > H) {
+      col.y = Math.random() * -200;
+      col.speed = Math.random() * 2 + 1.5;
+      col.trail = Math.floor(Math.random() * 12) + 6;
+    }
+  });
 }
+
 function animate() {
-  ctx.clearRect(0, 0, W, H);
-  
+  ctx.fillStyle = 'rgba(5,5,5,0.35)';
+  ctx.fillRect(0, 0, W, H);
+
+  drawBinaryRain();
+
   // Render ripples
   for (let i = RIPPLES.length - 1; i >= 0; i--) {
     RIPPLES[i].update();
@@ -138,11 +136,10 @@ function animate() {
     }
   }
 
-  PARTICLES.forEach(p => { p.update(); p.draw(); });
-  drawLines();
   requestAnimationFrame(animate);
 }
 animate();
+
 
 // ── Intersection observer reveals ─────────────
 const revealEls = document.querySelectorAll('.about-card, .skill-category, .connect-card');
