@@ -48,22 +48,108 @@ navLinks.querySelectorAll('.nav-link').forEach(link => {
   });
 });
 
-// ── Animated binary-rain canvas ───────────────
+// ── Animated typing code-editor canvas ────────
 const canvas = document.getElementById('bg-canvas');
 const ctx    = canvas.getContext('2d');
 let W, H;
-const FONT_SIZE = 16;
-let COLUMNS = [];
+const FONT_SIZE = 13;
+const LINE_H = 19;
+const CODE_LINES = [
+  "// Passionate Developer",
+  "// Building the Future",
+  "",
+  "const developer = {",
+  "  name: 'Anish Das',",
+  "  role: 'Full Stack Developer',",
+  "  skills: ['JavaScript', 'TypeScript',",
+  "    'React', 'Node.js', 'Python', 'DSA'],",
+  "  focus: 'Problem Solving & Clean Code',",
+  "  code: function() {",
+  "    return 'Consistent efforts. Real results.';",
+  "  }",
+  "};",
+  "",
+  "while (true) {",
+  "  developer.code();",
+  "  developer.improve();",
+  "}",
+];
+const CELL_W = 300;
+const CELL_H = CODE_LINES.length * LINE_H + 30;
+let CELLS = [];
+
+class CodeCell {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.lineIdx = 0;
+    this.charIdx = 0;
+    this.acc = Math.random();
+    this.speed = Math.random() * 0.5 + 0.4;
+    this.state = 'typing';
+    this.holdTimer = Math.floor(Math.random() * 300);
+  }
+  update() {
+    if (this.state === 'hold') {
+      this.holdTimer--;
+      if (this.holdTimer <= 0) {
+        this.state = 'typing';
+        this.lineIdx = 0;
+        this.charIdx = 0;
+      }
+      return;
+    }
+    this.acc += this.speed;
+    if (this.acc >= 1) {
+      this.acc = 0;
+      const line = CODE_LINES[this.lineIdx];
+      this.charIdx++;
+      if (this.charIdx > line.length) {
+        this.lineIdx++;
+        this.charIdx = 0;
+        if (this.lineIdx >= CODE_LINES.length) {
+          this.state = 'hold';
+          this.holdTimer = 120 + Math.floor(Math.random() * 180);
+        }
+      }
+    }
+  }
+  draw() {
+    const endLine = this.state === 'hold' ? CODE_LINES.length : this.lineIdx + 1;
+    for (let i = 0; i < endLine; i++) {
+      const full = CODE_LINES[i];
+      const text = (i === this.lineIdx && this.state === 'typing') ? full.slice(0, this.charIdx) : full;
+      if (!text) continue;
+      const rowY = this.y + i * LINE_H;
+      if (rowY < -LINE_H || rowY > H) continue;
+      ctx.fillStyle = 'rgba(220,50,50,0.5)';
+      ctx.fillText(text, this.x, rowY);
+    }
+    if (this.state === 'typing') {
+      const line = CODE_LINES[this.lineIdx];
+      const partial = line.slice(0, this.charIdx);
+      const cw = ctx.measureText(partial).width;
+      const rowY = this.y + this.lineIdx * LINE_H;
+      if (rowY >= -LINE_H && rowY <= H && Math.floor(Date.now() / 400) % 2 === 0) {
+        ctx.fillStyle = 'rgba(255,140,140,0.75)';
+        ctx.fillRect(this.x + cw, rowY, 6, FONT_SIZE);
+      }
+    }
+  }
+}
 
 function resize() {
   W = canvas.width  = window.innerWidth;
   H = canvas.height = window.innerHeight;
-  const colCount = Math.ceil(W / FONT_SIZE);
-  COLUMNS = Array.from({ length: colCount }, (_, i) => COLUMNS[i] || {
-    y: Math.random() * -H,
-    speed: Math.random() * 2 + 1.5,
-    trail: Math.floor(Math.random() * 12) + 6,
-  });
+  CELLS = [];
+  const cols = Math.ceil(W / CELL_W) + 1;
+  const rows = Math.ceil(H / CELL_H) + 1;
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const offsetX = (r % 2) ? CELL_W / 2 : 0;
+      CELLS.push(new CodeCell(c * CELL_W + offsetX, r * CELL_H));
+    }
+  }
 }
 window.addEventListener('resize', resize);
 resize();
@@ -95,36 +181,17 @@ class Ripple {
 }
 let RIPPLES = [];
 
-function drawBinaryRain() {
+function drawCodeCells() {
   ctx.font = `${FONT_SIZE}px 'JetBrains Mono', monospace`;
   ctx.textBaseline = 'top';
-  COLUMNS.forEach((col, i) => {
-    const x = i * FONT_SIZE;
-    for (let t = 0; t < col.trail; t++) {
-      const y = col.y - t * FONT_SIZE;
-      if (y < -FONT_SIZE || y > H) continue;
-      const char = Math.random() > 0.5 ? '1' : '0';
-      const fade = 1 - t / col.trail;
-      const alpha = t === 0 ? 0.55 : fade * 0.22;
-      ctx.fillStyle = t === 0
-        ? `rgba(255,120,120,${alpha})`
-        : `rgba(239,68,68,${alpha})`;
-      ctx.fillText(char, x, y);
-    }
-    col.y += col.speed;
-    if (col.y - col.trail * FONT_SIZE > H) {
-      col.y = Math.random() * -200;
-      col.speed = Math.random() * 2 + 1.5;
-      col.trail = Math.floor(Math.random() * 12) + 6;
-    }
-  });
+  CELLS.forEach(cell => { cell.update(); cell.draw(); });
 }
 
 function animate() {
-  ctx.fillStyle = 'rgba(5,5,5,0.35)';
+  ctx.fillStyle = '#050505';
   ctx.fillRect(0, 0, W, H);
 
-  drawBinaryRain();
+  drawCodeCells();
 
   // Render ripples
   for (let i = RIPPLES.length - 1; i >= 0; i--) {
