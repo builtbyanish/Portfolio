@@ -50,16 +50,21 @@
           <span class="name-cursor">|</span>
         </span>
       </h1>
-      <div class="hero-cta">
-        <a href="#connect" class="btn btn-primary" id="btn-connect">
-          <span>Let's Connect</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="#repos" class="btn btn-secondary" id="btn-about">View Projects</a>
-        <a href="mailto:anishdas.vizag@gmail.com" class="btn btn-secondary" id="btn-mail">
-          <span>Mail Me</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        </a>
+      <p class="hero-subtitle">Computer Science (AI &amp; ML) Student</p>
+      <p class="hero-desc">Building software, solving problems, and continuously learning.</p>
+      <div class="hero-contact">
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Visakhapatnam</span>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+918688150682">8688150682</a>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:anishdas.vizag@gmail.com">anishdas.vizag@gmail.com</a>
+        </div>
       </div>
 
       <!-- Social icons in hero -->
@@ -431,29 +436,6 @@
       <p class="footer-copy">&copy; 2024 Anish Das. All rights reserved.</p>
     </div>
   </footer>
-
-  <!-- ═══ NOW PLAYING BAR (fixed bottom) ═══ -->
-  <div class="now-playing-bar" id="now-playing-bar">
-    <a href="https://open.spotify.com/user/31lxrbb7zxcpmicasuj6jt2n53jy" target="_blank" rel="noopener" class="np-art" id="np-art">
-      <svg viewBox="0 0 24 24" fill="#1db954" width="22" height="22"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-    </a>
-    <div class="np-meta">
-      <span class="np-status" id="np-status">▶ Now Playing</span>
-      <span class="np-track"  id="np-track">Loading…</span>
-      <span class="np-artist" id="np-artist"></span>
-    </div>
-    <div class="np-progress-wrap">
-      <div class="np-progress">
-        <div class="np-progress-fill" id="np-progress-fill"></div>
-      </div>
-    </div>
-    <div class="np-eq">
-      <span class="np-bar"></span><span class="np-bar"></span>
-      <span class="np-bar"></span><span class="np-bar"></span>
-      <span class="np-bar"></span>
-    </div>
-    <button class="np-close" id="np-close" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-  </div>
 
   <script src="script.js?v=2"></script>
 </body>
