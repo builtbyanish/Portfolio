@@ -58,9 +58,9 @@ body {
 
 .bg-glass {
   position: fixed; inset: 0; z-index: 1; pointer-events: none;
-  backdrop-filter: blur(0.5px);
-  -webkit-backdrop-filter: blur(0.5px);
-  background: rgba(5,5,5,0.25);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  background: rgba(5,5,5,0.55);
 }
 
 .cursor-glow {

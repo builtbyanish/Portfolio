@@ -105,7 +105,7 @@ function drawBinaryRain() {
       if (y < -FONT_SIZE || y > H) continue;
       const char = Math.random() > 0.5 ? '1' : '0';
       const fade = 1 - t / col.trail;
-      const alpha = t === 0 ? 0.9 : fade * 0.45;
+      const alpha = t === 0 ? 0.55 : fade * 0.22;
       ctx.fillStyle = t === 0
         ? `rgba(255,120,120,${alpha})`
         : `rgba(239,68,68,${alpha})`;
