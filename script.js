@@ -691,7 +691,7 @@ const idShine = document.querySelector('.id-card-shine');
 // Big left-right swing on load, stopping once the "Who Am I" section is reached
 if (idCard) {
   const aboutSection = document.getElementById('about');
-  setTimeout(() => idCard.classList.add('id-card-swing'), 1600);
+  idCard.classList.add('id-card-swing');
   if (aboutSection) {
     const swingObs = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
