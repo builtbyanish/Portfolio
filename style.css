@@ -404,12 +404,14 @@ body {
   gap: .4rem;
   margin-bottom: .55rem;
 }
+.hnp-top svg { flex-shrink: 0; display: block; }
 .hnp-label {
   font-size: .62rem;
   font-weight: 700;
   color: #1db954;
   letter-spacing: .6px;
   text-transform: uppercase;
+  line-height: 1;
   flex: 1;
 }
 
@@ -433,6 +435,15 @@ body {
 .hnp-eq span:nth-child(4) { height: 90%;  animation-delay: .08s; }
 .hnp-eq span:nth-child(5) { height: 60%;  animation-delay: .22s; }
 
+/* Album art + track meta */
+.hnp-body { display: flex; align-items: center; gap: .65rem; }
+.hnp-art {
+  width: 44px; height: 44px; border-radius: 8px; flex-shrink: 0;
+  background: rgba(255,255,255,.06) center/cover no-repeat;
+  border: 1px solid rgba(255,255,255,.08);
+}
+.hnp-meta { flex: 1; min-width: 0; }
+
 /* Track name & artist */
 .hnp-track {
   font-size: .85rem;
@@ -441,7 +452,7 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 195px;
+  max-width: 100%;
 }
 .hnp-artist {
   font-size: .73rem;
@@ -449,7 +460,7 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 195px;
+  max-width: 100%;
   margin-top: .2rem;
 }
 

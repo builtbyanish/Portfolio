@@ -577,6 +577,11 @@ function updateSpotifyUI({ track = '', artist = '', isPlaying = false, albumArt 
   const hnpTrack  = document.getElementById('hnp-track');
   const hnpArtist = document.getElementById('hnp-artist');
   const hnpFill   = document.getElementById('hnp-bar-fill');
+  const hnpArt    = document.getElementById('hnp-art');
+
+  if (hnpArt) {
+    hnpArt.style.backgroundImage = albumArt ? `url('${albumArt}')` : '';
+  }
 
   if (hasRealTrack) {
     if (hnpTrack)  hnpTrack.textContent  = track;
