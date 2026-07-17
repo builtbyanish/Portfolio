@@ -231,8 +231,11 @@ body {
   transform-origin: top center;
   perspective: 1000px;
   transform-style: preserve-3d;
+  animation: dropIn 1.6s cubic-bezier(0.175, 0.885, 0.32, 1.15) forwards;
+}
+.hanging-id-card.id-card-swing {
   animation: dropIn 1.6s cubic-bezier(0.175, 0.885, 0.32, 1.15) forwards,
-             sway 5s ease-in-out infinite alternate 1.6s;
+             swingBig 2.4s ease-in-out infinite alternate 1.6s;
 }
 .hanging-id-card.releasing {
   transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -246,6 +249,10 @@ body {
 @keyframes sway {
   0% { transform: rotate(-3deg); }
   100% { transform: rotate(3deg); }
+}
+@keyframes swingBig {
+  0% { transform: rotate(-45deg); }
+  100% { transform: rotate(45deg); }
 }
 
 .lanyard-strap {

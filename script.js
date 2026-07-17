@@ -688,6 +688,25 @@ const idCard = document.querySelector('.hanging-id-card');
 const idBody = document.querySelector('.id-card-body');
 const idShine = document.querySelector('.id-card-shine');
 
+// Big left-right swing on load, stopping once the "Who Am I" section is reached
+if (idCard) {
+  const aboutSection = document.getElementById('about');
+  setTimeout(() => idCard.classList.add('id-card-swing'), 1600);
+  if (aboutSection) {
+    const swingObs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          idCard.classList.remove('id-card-swing');
+          idCard.style.transition = 'transform 0.6s ease';
+          idCard.style.transform = 'rotate(0deg)';
+          swingObs.disconnect();
+        }
+      });
+    }, { threshold: 0.2 });
+    swingObs.observe(aboutSection);
+  }
+}
+
 if (idCard && idBody && idShine) {
   let isDragging = false;
   let startX = 0;
@@ -731,6 +750,7 @@ if (idCard && idBody && idShine) {
     if (e.cancelable) e.preventDefault();
     isDragging = true;
     idCard.classList.remove('releasing');
+    idCard.classList.remove('id-card-swing');
     lanyardStrap.style.transition = 'none';
     idCard.style.animation = 'none'; // Pause automatic sway
     
