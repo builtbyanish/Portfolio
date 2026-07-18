@@ -2,22 +2,16 @@
    ANISH PORTFOLIO — script.js  (v3)
    ============================================= */
 
-// ── Cursor glow & Ripple Waves ────────────────
+// ── Cursor glow & torch reveal ────────────────
 const cursorGlow = document.getElementById('cursor-glow');
-let lastX = 0, lastY = 0;
+const rootEl = document.documentElement;
 document.addEventListener('mousemove', (e) => {
   cursorGlow.style.left = e.clientX + 'px';
   cursorGlow.style.top  = e.clientY + 'px';
 
-  // Spawn a wave ripple if the cursor moves more than 20px
-  const dx = e.clientX - lastX;
-  const dy = e.clientY - lastY;
-  const dist = Math.sqrt(dx*dx + dy*dy);
-  if (dist > 20) {
-    RIPPLES.push(new Ripple(e.clientX, e.clientY));
-    lastX = e.clientX;
-    lastY = e.clientY;
-  }
+  // Move the torch-light mask that reveals the code background
+  rootEl.style.setProperty('--mx', e.clientX + 'px');
+  rootEl.style.setProperty('--my', e.clientY + 'px');
 });
 
 // ── Navbar scroll ────────────────────────────
@@ -154,33 +148,6 @@ function resize() {
 window.addEventListener('resize', resize);
 resize();
 
-// Ripple wave class
-class Ripple {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-    this.r = 2;
-    this.maxR = 80;
-    this.a = 0.6;
-    this.speed = 2;
-  }
-  update() {
-    this.r += this.speed;
-    this.a = 1 - (this.r / this.maxR);
-  }
-  draw() {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-    ctx.strokeStyle = `rgba(239, 68, 68, ${this.a * 0.5})`;
-    ctx.lineWidth = 1.5;
-    ctx.shadowColor = 'rgba(239, 68, 68, 0.8)';
-    ctx.shadowBlur = 12;
-    ctx.stroke();
-    ctx.shadowBlur = 0;
-  }
-}
-let RIPPLES = [];
-
 function drawCodeCells() {
   ctx.font = `${FONT_SIZE}px 'JetBrains Mono', monospace`;
   ctx.textBaseline = 'top';
@@ -192,16 +159,6 @@ function animate() {
   ctx.fillRect(0, 0, W, H);
 
   drawCodeCells();
-
-  // Render ripples
-  for (let i = RIPPLES.length - 1; i >= 0; i--) {
-    RIPPLES[i].update();
-    if (RIPPLES[i].a <= 0) {
-      RIPPLES.splice(i, 1);
-    } else {
-      RIPPLES[i].draw();
-    }
-  }
 
   requestAnimationFrame(animate);
 }

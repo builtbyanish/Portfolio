@@ -58,9 +58,11 @@ body {
 
 .bg-glass {
   position: fixed; inset: 0; z-index: 1; pointer-events: none;
-  backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(1px);
-  background: rgba(5,5,5,0.4);
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+  background: rgba(5,5,5,0.82);
+  -webkit-mask-image: radial-gradient(circle 260px at var(--mx, 50%) var(--my, 50%), transparent 0%, rgba(0,0,0,.5) 45%, black 100%);
+  mask-image: radial-gradient(circle 260px at var(--mx, 50%) var(--my, 50%), transparent 0%, rgba(0,0,0,.5) 45%, black 100%);
 }
 
 .cursor-glow {
